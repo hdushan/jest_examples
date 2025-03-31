@@ -10,7 +10,12 @@
   },
   "scripts": {
     "test": "jest",
-    "lint": "eslint"
+    "lint": "eslint",
+    "lintFix": "eslint --fix",
+    "pretty": "prettier --check .",
+    "prettyFix": "prettier --write .",
+    "all": "yarn lint && yarn pretty && yarn test",
+    "fix": "yarn lintFix && yarn prettyFix"
   },
   "packageManager": "yarn@4.8.1"
 }
