@@ -2,20 +2,24 @@ const { expect } = require('@jest/globals')
 
 test('Object operations', () => {
   // Create an Object
-  const person = {
+  let person = {
     firstName: 'John',
     lastName: 'Doe',
     age: 50,
     eyeColor: 'blue'
   }
+  expect(person.age).toBe(50)
   // or
   const person2 = new Object()
   person2.firstName = 'John'
   person2.lastName = 'Doe'
+  expect(person2['lastName']).toBe('Doe')
   // or
   const person3 = {}
   person3.firstName = 'John'
   person3.lastName = 'Doe'
+  delete person3.firstName
+  expect(person3['firstName']).toBeUndefined()
   // Objects can contain properties and methods
   const person4 = {
     firstName: 'John',
@@ -26,4 +30,5 @@ test('Object operations', () => {
       return this.firstName + ' ' + this.lastName
     }
   }
+  expect(person4.fullName()).toBe('John Doe')
 })
