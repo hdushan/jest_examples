@@ -12,7 +12,7 @@ test("dashes", () => {
   expect(camelize("This-is-a-sentence")).toBe("thisIsASentence");
 });
 
-test("sinle word", () => {
+test("single word", () => {
   expect(camelize("This")).toBe("this");
 });
 
