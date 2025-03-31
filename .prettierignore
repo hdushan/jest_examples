@@ -1,0 +1,6 @@
+
+.github/
+README.md
+jest.*
+eslint.*
+node_modules/**/*

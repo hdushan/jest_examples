@@ -16,4 +16,5 @@ jobs:
           node-version: "22"
       - run: yarn --frozen-lockfile
       - run: yarn lint
+      - run: yarn prettier --check .
       - run: yarn test
