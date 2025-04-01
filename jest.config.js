@@ -1,4 +1,5 @@
 /** @type {import('jest').Config} */
+
 export default {
   verbose: true,
   collectCoverage: true,
