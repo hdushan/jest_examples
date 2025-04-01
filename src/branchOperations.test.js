@@ -40,7 +40,12 @@ describe('branchOperations: greetByDay', () => {
 
 const greetByTime = () => {
   let greeting
-  const time = new Date().getHours()
+  const date = new Date()
+  console.log('Date')
+  console.log(date)
+  let time = date.getHours()
+  console.log('Time')
+  console.log(time)
   if (time < 10) {
     greeting = 'Good morning'
   } else if (time < 20) {
@@ -58,6 +63,7 @@ describe('branchOperations: greetByTime', () => {
   })
 
   test('greetByTime: evening', () => {
+    console.log('Offset')
     console.log(new Date().getTimezoneOffset())
     expect(greetByTime()).toBe('Good evening')
   })
