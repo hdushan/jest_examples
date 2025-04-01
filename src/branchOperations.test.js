@@ -54,11 +54,13 @@ const greetByTime = () => {
 describe('branchOperations: greetByTime', () => {
   beforeEach(() => {
     jest.useFakeTimers()
-    Date.prototype.getTimezoneOffset = jest.fn(() => -660)
     jest.setSystemTime(new Date('2025-04-01T11:00:00Z'))
+    Date.prototype.getTimezoneOffset = jest.fn(() => -660)
   })
 
   test('greetByTime: evening', () => {
+    console.log(new Date().getTimezoneOffset())
+    console.log(process.env.TZ)
     expect(greetByTime()).toBe('Good evening')
   })
 
