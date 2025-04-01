@@ -14,12 +14,16 @@ test('Object operations', () => {
   person2.firstName = 'John'
   person2.lastName = 'Doe'
   expect(person2['lastName']).toBe('Doe')
+  expect(JSON.stringify(person2)).toEqual(
+    '{"firstName":"John","lastName":"Doe"}'
+  )
   // or
   const person3 = {}
   person3.firstName = 'John'
   person3.lastName = 'Doe'
   delete person3.firstName
   expect(person3['firstName']).toBeUndefined()
+  expect(Object.values(person3)).toEqual(['Doe'])
   // Objects can contain properties and methods
   const person4 = {
     firstName: 'John',
@@ -31,4 +35,20 @@ test('Object operations', () => {
     }
   }
   expect(person4.fullName()).toBe('John Doe')
+  expect(Object.keys(person4)).toEqual([
+    'firstName',
+    'lastName',
+    'age',
+    'eyeColor',
+    'fullName'
+  ])
+
+  // type
+  function Person(first, last) {
+    this.firstName = first
+    this.lastname = last
+    this.age = 40
+  }
+  let person5 = new Person('hans', 'Raj')
+  expect(person5.age).toEqual(40)
 })
