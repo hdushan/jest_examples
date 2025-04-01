@@ -59,7 +59,7 @@ const greetByTime = () => {
 describe('branchOperations: greetByTime', () => {
   beforeEach(() => {
     jest.useFakeTimers()
-    jest.setSystemTime(new Date('2025-04-01T11:00:00Z'))
+    jest.setSystemTime(new Date('01 Apr 2025 11:00:00 GMT').getTime())
   })
 
   test('greetByTime: evening', () => {
