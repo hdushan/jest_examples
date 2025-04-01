@@ -17,4 +17,7 @@ export default {
       statements: -10,
     },
   },
+  globals: {
+    TZ: 'Australia/Sydney',
+  },
 };
