@@ -55,7 +55,7 @@ describe('branchOperations: greetByTime', () => {
   beforeEach(() => {
     jest.useFakeTimers()
     jest.setSystemTime(new Date('2025-04-01T11:00:00Z'))
-    Date.prototype.getTimezoneOffset = jest.fn(() => -660)
+    process.env.TZ = 'Australia/Sydney'
   })
 
   test('greetByTime: evening', () => {
