@@ -7,14 +7,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: Enable Corepack
         run: corepack enable
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - run: yarn --frozen-lockfile
-      - run: yarn lint
-      - run: yarn pretty
-      - run: yarn test
+      - name: Install packages with yarn
+        run: yarn --frozen-lockfile
+      - name: Lint check
+        run: yarn lint
+      - name: Prettier check
+        run: yarn pretty
+      - name: Run all tests
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: yarn test

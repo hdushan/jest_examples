@@ -1,5 +1,8 @@
 # Javascript examples
 
+## Env vars
+### `export OPENAI_API_KEY = <openapi key>`
+
 ## Dev instructions
 1. Install packages: `yarn`
 2. Lint: `yarn lint`, `yarn lintFix`
