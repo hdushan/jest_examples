@@ -10,7 +10,7 @@
     "prettier": "^3.5.3"
   },
   "scripts": {
-    "test": "jest",
+    "test": "TZ=Australia/Sydney jest",
     "lint": "eslint",
     "lintFix": "eslint --fix",
     "pretty": "prettier --check .",
