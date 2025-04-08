@@ -1,5 +1,3 @@
-const { expect, describe } = require('@jest/globals')
-
 describe('Destructuring operations', () => {
   test('Destructure Object, including an example alias', () => {
     // Create an Object

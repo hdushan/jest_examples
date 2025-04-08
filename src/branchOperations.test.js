@@ -1,11 +1,3 @@
-const {
-  expect,
-  test,
-  describe,
-  beforeEach,
-  afterAll
-} = require('@jest/globals')
-
 function greetByDay() {
   let text
   switch (new Date().getDay()) {
@@ -42,9 +34,6 @@ const greetByTime = () => {
   let greeting
   const date = new Date()
   let time = date.getHours()
-  console.log(
-    `Date: ${date}, Time: ${time}, Offset: ${date.getTimezoneOffset()}`
-  )
   if (time < 10) {
     greeting = 'Good morning'
   } else if (time < 20) {

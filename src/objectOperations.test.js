@@ -1,5 +1,3 @@
-const { expect } = require('@jest/globals')
-
 test('Object operations', () => {
   // Create an Object
   let person = {

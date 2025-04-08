@@ -1,5 +1,3 @@
-const { expect } = require('@jest/globals')
-
 test('Math Operations', () => {
   expect(Math.round(1.4)).toEqual(1)
   expect(Math.round(1.5)).toEqual(2)

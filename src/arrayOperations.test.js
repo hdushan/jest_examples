@@ -1,5 +1,3 @@
-const { expect } = require('@jest/globals')
-
 test('Array operations', () => {
   let fruits = ['Banana', 'Orange', 'Apple', 'Mango']
   expect(fruits instanceof Array).toBe(true)
@@ -59,14 +57,16 @@ test('Array operations', () => {
     { type: 'BMW', year: 2010 },
     { type: 'Volvo', year: 2016 }
   ])
-  // foreach
-  fruits.forEach((fruit) => {
-    console.log(fruit)
-  })
-  // iterate over string after converting it to array
-  Array.from('ABCDEFG').forEach((letter) => {
-    console.log(letter)
-  })
+
+  // // foreach
+  // fruits.forEach((fruit) => {
+  //   console.log(fruit)
+  // })
+  // // iterate over string after converting it to array
+  // Array.from('ABCDEFG').forEach((letter) => {
+  //   console.log(letter)
+  // })
+
   // map
   expect([1, 2, 3].map((x) => x * 2)).toEqual([2, 4, 6])
   // filter
