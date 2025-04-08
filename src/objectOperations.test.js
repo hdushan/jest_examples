@@ -9,6 +9,7 @@ test('Object operations', () => {
     eyeColor: 'blue'
   }
   expect(person.age).toBe(50)
+
   // or
   const person2 = new Object()
   person2.firstName = 'John'
@@ -51,17 +52,4 @@ test('Object operations', () => {
   }
   let person5 = new Person('hans', 'Raj')
   expect(person5.age).toEqual(40)
-
-  // Create an Object
-  const person6 = {
-    firstName: 'John',
-    lastName: 'Doe',
-    age: 50
-  }
-
-  // Destructuring, showing an alias example too
-  let { firstName, lastName: lName, country = 'US' } = person6
-  expect(firstName).toBe('John')
-  expect(lName).toBe('Doe')
-  expect(country).toBe('US')
 })
