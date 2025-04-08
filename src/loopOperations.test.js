@@ -28,6 +28,19 @@ describe('Loop Operations', () => {
     expect(arr).toEqual(arr1)
   })
 
+  test('While with break', () => {
+    let arr1 = []
+    let i = 0
+    while (i < arr.length) {
+      arr1.push(arr[i])
+      i++
+      if (i == 1) {
+        break
+      } // same syntax for continue too
+    }
+    expect(arr1.length).toEqual(1)
+  })
+
   test('Do-While loop', () => {
     let arr1 = []
     let i = 0
@@ -44,5 +57,35 @@ describe('Loop Operations', () => {
       arr1.push(letter)
     })
     expect(arr).toEqual(arr1)
+  })
+
+  test('Home-built iterable', () => {
+    // A JavaScript iterable is an object that has a Symbol.iterator.
+    // The Symbol.iterator is a function that returns a next() function.
+    // An iterable can be iterated over with the code: for (const x of iterable) { }
+
+    // Create an Object
+    let myNumbers = {}
+
+    // Make it iterable
+    myNumbers[Symbol.iterator] = function () {
+      let n = 0
+      let done = false
+      return {
+        next() {
+          n += 10
+          if (n == 50) {
+            done = true
+          }
+          return { value: n, done: done }
+        }
+      }
+    }
+
+    let arr1 = []
+    for (const n of myNumbers) {
+      arr1.push(n)
+    }
+    expect(arr1).toEqual([10, 20, 30, 40]) // Note: last value 50 isnt there
   })
 })
