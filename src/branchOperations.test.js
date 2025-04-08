@@ -57,9 +57,16 @@ const greetByTime = () => {
 }
 
 describe('branchOperations: greetByTime', () => {
+  let dateSpy
+
   beforeEach(() => {
     jest.useFakeTimers()
     jest.setSystemTime(new Date('01 Apr 2025 11:00:00 GMT').getTime())
+    dateSpy = jest
+      .spyOn(global.Date, 'now')
+      .mockImplementationOnce(() =>
+        new Date('01 Apr 2025 11:00:00 GMT').valueOf()
+      )
   })
 
   test('greetByTime: evening', () => {
@@ -70,5 +77,6 @@ describe('branchOperations: greetByTime', () => {
 
   afterAll(() => {
     jest.useRealTimers()
+    dateSpy.mockRestore()
   })
 })
