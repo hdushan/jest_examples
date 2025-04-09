@@ -1,6 +1,8 @@
 import { gender } from './restOperations'
 import axios from 'axios'
 
+// This line has to be at the top level of the file, not in before blocks
+// as entire axios object needs to be blocked
 jest.mock('axios')
 
 describe('REST Operations with axios', () => {
