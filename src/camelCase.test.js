@@ -1,4 +1,4 @@
-const camelize = require('./camelCase')
+import { camelize } from './camelCase.js'
 
 test('mix of space and special chars', () => {
   expect(camelize('This is&a*sentence')).toBe('thisIsASentence')

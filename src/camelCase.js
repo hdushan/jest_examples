@@ -1,4 +1,4 @@
-function camelize(str) {
+export function camelize(str) {
   var lower_str = str.toLowerCase().trim()
   var specialChars = /[^a-zA-Z]/g
   var sanitized_str = lower_str.replace(specialChars, ' ')
@@ -10,4 +10,3 @@ function camelize(str) {
   )
   return sanitized_camel_str.replace(/\s/g, '')
 }
-module.exports = camelize

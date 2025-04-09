@@ -6,7 +6,9 @@ export default {
   coverageReporters: ["text"],
   collectCoverageFrom: [
     "**/src/*.js",
+    "**/src/*.mjs",
     "!**/src/*.test.js",
+    "!**/src/*.test.mjs",
     "!**/node_modules/**",
   ],
   coverageThreshold: {
@@ -17,4 +19,17 @@ export default {
       statements: -10,
     },
   },
+  testEnvironment: 'node',
+  transform: {
+    "^.+\\.[m]?js$": "babel-jest"
+  },
+  moduleFileExtensions: ['js', 'mjs'],
+  testMatch: [
+    "**/__tests__/**/*.[jt]s?(x)",
+    "**/?(*.)+(spec|test).[jt]s?(x)",
+    "**/?(*.)+(spec|test).mjs"
+  ],
+  moduleNameMapper: {
+    '^(\\.{1,2}/.*)\\.js$': '$1'
+  }
 };
