@@ -1,7 +1,7 @@
 # Jest tests that illustrate various Javascript operations
 
-## Env vars
-### Have an OpenAI api key set: `export OPENAI_API_KEY = <openapi key>`
+## Env vars. Have these set in your development shell or CI/CD environment.
+### `export OPENAI_API_KEY = <openapi key>`
 
 ## Dev instructions
 1. Install packages: `yarn`
