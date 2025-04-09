@@ -1,6 +1,6 @@
 const OpenAI = require('openai')
 
-async function openAi(message) {
+export default async function openAi(message) {
   const openaiClient = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY
   })
@@ -12,5 +12,3 @@ async function openAi(message) {
 
   return response.output_text
 }
-
-module.exports = openAi
