@@ -11,17 +11,13 @@ async function gender(name) {
 
 async function echo(message) {
   try {
-    let response = await axios({
-      method: 'post',
-      url: 'http://httpbun.org/post',
-      data: {
-        message: message
-      },
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    return JSON.parse(response.data.data).message
+    let response = await axios.post(
+      'http://httpbun.org/post',
+      { message: message },
+      { headers: { 'Content-Type': 'application/json' } }
+    )
+    // The httpbun.org API returns the message in the json property
+    return response.data.json.message
   } catch (error) {
     throw new Error(`Failed to echo: ${error.message}`)
   }

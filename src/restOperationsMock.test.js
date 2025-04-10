@@ -55,14 +55,14 @@ describe('REST Operations with axios mocked', () => {
 
   describe('POST operation', () => {
     beforeEach(() => {
-      axios.get.mockReset()
+      axios.post.mockReset()
     })
 
     test('Should echo the message when API call succeeds', async () => {
       // Arrange
       axios.post.mockResolvedValue({
-        data: { 
-          data: {
+        data: {
+          json: {
             message: '123'
           }
         }
@@ -72,25 +72,29 @@ describe('REST Operations with axios mocked', () => {
       const result = await echo('123')
 
       // Assert
-      expect(axios.get).toHaveBeenCalledTimes(1)
-      expect(axios.get).toHaveBeenCalledWith(
-        'https://api.genderize.io?name=alice'
+      expect(axios.post).toHaveBeenCalledTimes(1)
+      expect(axios.post).toHaveBeenCalledWith(
+        'http://httpbun.org/post',
+        { message: '123' },
+        { headers: { 'Content-Type': 'application/json' } }
       )
-      expect(result).toBe('female')
+      expect(result).toBe('123')
     })
 
     test('Should throw error when API call fails', async () => {
       // Arrange
-      const errorMessage = 'Network Error'
-      axios.get.mockRejectedValue(new Error(errorMessage))
+      const errorMessage = 'Echo Error'
+      axios.post.mockRejectedValue(new Error(errorMessage))
 
       // Act & Assert
-      await expect(gender('alice')).rejects.toThrow(
-        `Failed to fetch gender data: ${errorMessage}`
+      await expect(echo('123')).rejects.toThrow(
+        `Failed to echo: ${errorMessage}`
       )
-      expect(axios.get).toHaveBeenCalledTimes(1)
-      expect(axios.get).toHaveBeenCalledWith(
-        'https://api.genderize.io?name=alice'
+      expect(axios.post).toHaveBeenCalledTimes(1)
+      expect(axios.post).toHaveBeenCalledWith(
+        'http://httpbun.org/post',
+        { message: '123' },
+        { headers: { 'Content-Type': 'application/json' } }
       )
     })
   })
