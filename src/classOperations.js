@@ -7,7 +7,7 @@ class Person {
     this.initialized = false
   }
 
-  // This is a common pattern called "two-phase construction" where we 
+  // This is a common pattern called "two-phase construction" where we
   // separate synchronous initialization from async operations,
   // as constructors cannot be async
   async initialize() {
