@@ -3,24 +3,28 @@
   "devDependencies": {
     "@babel/core": "^7.26.10",
     "@babel/preset-env": "^7.26.9",
-    "@eslint/js": "^9.22.0",
+    "@babel/preset-typescript": "^7.27.0",
     "@jest/globals": "^29.7.0",
+    "@types/node": "^22.14.1",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
     "axios": "^1.8.4",
     "babel-jest": "^29.7.0",
-    "eslint": "^9.22.0",
+    "eslint": "^8.56.0",
     "globals": "^16.0.0",
     "jest": "^29.7.0",
     "openai": "^4.91.1",
-    "prettier": "^3.5.3"
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3"
   },
   "scripts": {
     "test": "TZ=Australia/Sydney jest",
-    "lint": "eslint",
-    "lintFix": "eslint --fix",
+    "lint": "eslint \"src/**/*.{js,ts}\"",
+    "lintFix": "eslint \"src/**/*.{js,ts}\" --fix",
     "pretty": "prettier --check .",
     "prettyFix": "prettier --write .",
     "all": "yarn lint && yarn pretty && yarn test",
     "fix": "yarn lintFix && yarn prettyFix"
   },
-  "packageManager": "yarn@4.8.1"
+  "packageManager": "yarn@4.9.0"
 }
