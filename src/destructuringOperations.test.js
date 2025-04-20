@@ -13,6 +13,11 @@ describe('Destructuring operations', () => {
     expect(firstName).toBe('John')
     expect(lName).toBe('Doe')
     expect(country).toBe('US')
+
+    // Spread operator, showing an example of how to change one property
+    let person1 = { ...person, firstName: 'Hans' }
+    expect(person1.firstName).toBe('Hans')
+    expect(person1.lastName).toBe('Doe')
   })
 
   test('Destructure Array', () => {
