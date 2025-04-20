@@ -1,24 +1,4 @@
-import { describe } from 'node:test'
-
-function promiseExample(name) {
-  return new Promise((resolve, reject) => {
-    if (name.toLowerCase() === 'hans') {
-      resolve('me')
-    } else {
-      reject('not me')
-    }
-  })
-}
-
-const promiseCaller = (name) => {
-  return promiseExample(name)
-    .then((returnedString) => {
-      return returnedString
-    })
-    .catch((errorString) => {
-      return errorString
-    })
-}
+import { promiseExample, promiseCaller } from './promiseOperations'
 
 describe('Promise Operations', () => {
   it('Promise example', async () => {
