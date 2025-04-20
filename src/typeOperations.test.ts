@@ -29,6 +29,9 @@ describe('Type Operations', () => {
   test('Age check', async () => {
     expect(
       await fnWithTypeInArgumentsReturnsPromise({ age: 22, name: 'hans' })
-    ).toBe('22 is old')
+    ).toBe('hans is old')
+    await expect(
+      fnWithTypeInArgumentsReturnsPromise({ age: 20, name: 'hans' })
+    ).rejects.toThrow('hans is young')
   })
 })

@@ -24,8 +24,8 @@ export function fnWithTypeInArgumentsReturnsPromise(person: {
 }): Promise<string> {
   return new Promise((resolve, reject) => {
     if (person.age < 21) {
-      reject(new Error('Too young'))
+      reject(new Error(`${person.name} is young`))
     }
-    resolve(`${person.age} is old`)
+    resolve(`${person.name} is old`)
   })
 }
