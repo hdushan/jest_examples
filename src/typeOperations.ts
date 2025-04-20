@@ -17,3 +17,15 @@ export function isVeteran(user: User): boolean {
 export function isTooOld(car: Car) {
   return car.year < 2020
 }
+
+export function fnWithTypeInArgumentsReturnsPromise(person: {
+  name: string
+  age: number
+}): Promise<string> {
+  return new Promise((resolve, reject) => {
+    if (person.age < 21) {
+      reject(new Error('Too young'))
+    }
+    resolve(`${person.age} is old`)
+  })
+}

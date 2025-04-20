@@ -1,4 +1,10 @@
-import { Car, User, isTooOld, isVeteran } from './typeOperations'
+import {
+  Car,
+  User,
+  isTooOld,
+  isVeteran,
+  fnWithTypeInArgumentsReturnsPromise
+} from './typeOperations'
 import { describe, test, expect } from '@jest/globals'
 
 describe('Type Operations', () => {
@@ -18,5 +24,11 @@ describe('Type Operations', () => {
 
   test('Older car', () => {
     expect(isTooOld(car)).toBe(true)
+  })
+
+  test('Age check', async () => {
+    expect(
+      await fnWithTypeInArgumentsReturnsPromise({ age: 22, name: 'hans' })
+    ).toBe('22 is old')
   })
 })
