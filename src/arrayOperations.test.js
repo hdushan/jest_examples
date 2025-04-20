@@ -160,6 +160,7 @@ describe('Array Operations', () => {
       const q1 = ['Jan', 'Feb', 'Mar']
       const q2 = ['Apr', 'May', 'Jun']
       expect([...q1, ...q2]).toEqual(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'])
+      expect([...q1, 'Dec']).toEqual(['Jan', 'Feb', 'Mar', 'Dec'])
     })
 
     test('using apply with Math functions', () => {
