@@ -1,4 +1,4 @@
-function greetByDay() {
+function greetByDaySwitch() {
   let text
   switch (new Date().getDay()) {
     case 4:
@@ -15,22 +15,7 @@ function greetByDay() {
   return text
 }
 
-describe('branchOperations: greetByDay', () => {
-  beforeEach(() => {
-    jest.useFakeTimers()
-    jest.setSystemTime(new Date('2025-03-30'))
-  })
-
-  test('greetByDay: weekend', () => {
-    expect(greetByDay()).toBe('It is Weekend')
-  })
-
-  afterAll(() => {
-    jest.useRealTimers()
-  })
-})
-
-const greetByTime = () => {
+const greetByTimeIfElse = () => {
   let greeting
   const date = new Date()
   let time = date.getHours()
@@ -44,14 +29,41 @@ const greetByTime = () => {
   return greeting
 }
 
-describe('branchOperations: greetByTime', () => {
+const greetByTimeTernary = () => {
+  const date = new Date()
+  const time = date.getHours()
+  const greeting =
+    time < 10 ? 'Good morning' : time < 20 ? 'Good day' : 'Good evening'
+  return greeting
+}
+
+describe('branchOperations: Switch', () => {
+  beforeEach(() => {
+    jest.useFakeTimers()
+    jest.setSystemTime(new Date('2025-03-30'))
+  })
+
+  test('greetByDaySwitch: weekend', () => {
+    expect(greetByDaySwitch()).toBe('It is Weekend')
+  })
+
+  afterAll(() => {
+    jest.useRealTimers()
+  })
+})
+
+describe('branchOperations: If-Else and Ternary', () => {
   beforeEach(() => {
     jest.useFakeTimers()
     jest.setSystemTime(new Date('01 Apr 2025 11:00:00 GMT').getTime())
   })
 
-  test('greetByTime: evening', () => {
-    expect(greetByTime()).toBe('Good evening')
+  test('greetByTimeIfElse: evening', () => {
+    expect(greetByTimeIfElse()).toBe('Good evening')
+  })
+
+  test('greetByTimeTernary: evening', () => {
+    expect(greetByTimeTernary()).toBe('Good evening')
   })
 
   afterAll(() => {
