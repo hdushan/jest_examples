@@ -18,4 +18,12 @@ const promiseCaller = (name) => {
     })
 }
 
-export { promiseExample, promiseCaller }
+const promiseCallerAsyncAwait = async (name) => {
+  try {
+    return await promiseExample(name)
+  } catch (errorString) {
+    return errorString
+  }
+}
+
+export { promiseExample, promiseCaller, promiseCallerAsyncAwait }
